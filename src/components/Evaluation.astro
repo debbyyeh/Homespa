@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import star_title from "../assets/star.png";
+import star from "../assets/evaluation/rank.png";
+import customer from "../assets/evaluation/avatar.png";
+const evaluations = [
+  {
+    id: "01",
+    href: "https://goo.gl/maps/uTN4UkHn3qgNSniz8",
+    content:
+      "很喜歡這邊的環境～～體驗過臉部療程、身體按摩跟指甲光療都很喜歡！不會強迫推銷，讓人可以很安心的問各種皮膚問題 👍👍",
+  },
+  {
+    id: "02",
+    href: "https://goo.gl/maps/KpyvDiuip9jRh5DZ8",
+    content:
+      "環境像家一樣溫暖，美容師像朋友一樣好聊天完全無壓力，手法溫柔專業，放鬆舒適值得推薦！",
+  },
+  {
+    id: "03",
+    href: "https://goo.gl/maps/vTECGsbDB5HuNUyp6",
+    content:
+      "真心很愛這邊的環境，也很喜歡親切溫柔的昱琇，也不會一直推銷療程跟商品，這裡真的是放鬆身心靈好地方～～～按摩完看看窗外就覺得一切都這麼美好啊～～～",
+  },
+  {
+    id: "04",
+    href: "https://goo.gl/maps/sEhsQxaCTXWiBGEv7",
+    content:
+      "環境溫暖舒適，昱秀細心的服務和優秀的技術令人安心，每個月都要來紓解一下壓力，這一次做完馬上就會想約下一次了。",
+  },
+];
+---
+
+<section class="px-20">
+  <div class="text-center mt-10 mb-16 flex items-baseline">
+    <h2 class="f65-36 font-light text-primary mr-[20px]">Evaluation</h2>
+    <p class="f30-25 text-secondary">客戶評價</p>
+    <Image src={star_title} alt="star" class="w-[29px] h-[29px] self-start" />
+  </div>
+  <ul class="grid grid-cols-2 gap-12">
+    {
+      evaluations.map((evaluation) => (
+        <a href={evaluation.href} target="_blank" class="block w-full ">
+          <li class=" w-full bg-[#faf5f0] pt-[55px] pb-[35px] px-[36px] relative cursor-pointer">
+            <div class="w-[105px] h-[105px] border-2 border-white rounded-full bg-[#f2e6d7] flex items-center justify-center absolute top-[-30px] left-[4%] border-2 border-[#f2e6d7] shadow-[0_0_10px_#f2e6d7]">
+              <Image src={customer} alt="customer" class="w-[71px] h-[71px]" />
+            </div>
+            <div class="mt-[50px] leading-[1.8] f18-16 text-primary tracking-wide whitespace-normal">
+              {evaluation.content}
+            </div>
+            <div class="f65-36 absolute top-[-40px] right-[4%] text-[#c8c8c8]">
+              {evaluation.id}
+            </div>
+            <div class="absolute top-[50px] right-[6%] flex items-center">
+              {Array(5)
+                .fill(null)
+                .map((_, index) => (
+                  <Image
+                    src={star}
+                    alt="star"
+                    class="w-[21px] h-[20px] mr-[5px]"
+                  />
+                ))}
+            </div>
+          </li>
+        </a>
+      ))
+    }
+  </ul>
+</section>
