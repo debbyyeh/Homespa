@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import star from "../assets/star.png";
+import icon1 from "../assets/icon01.png";
+import icon2 from "../assets/icon02.png";
+import icon3 from "../assets/icon03.png";
+---
+
+<section class="bg-[#faf5f0] py-16">
+  <div class="container mx-auto display flex justify-center items-start">
+    <div class="w-full max-w-3/5">
+      <div class="text-center mb-8 flex items-baseline">
+        <h2 class="f65-36 font-light text-primary mr-[20px]">About</h2>
+        <p class="f30-25 text-secondary">關於我們</p>
+        <Image src={star} alt="star" class="w-[29px] h-[29px] self-start" />
+      </div>
+      <div class="text-left text-primary leading-relaxed max-w mx-auto">
+        <p class="text-sm md:text-base lg:text-lg leading-[1.8]">
+          想到「家」想到了什麼？<br />
+          看似簡單的問題卻讓人琢磨許久，對每個人來說一定都非常不同。<br />
+          有些人覺得是避風港，有些人覺得是歸屬感，<br />
+          有些人覺得是壓力，有些人覺得是愛。<br />
+          這些情感可能複雜，但對大多數人來說，情緒都是很滿的吧！<br /><br />
+          Home Spa 希望能用我們的詮釋帶出我們心中對家的感覺，<br />
+          讓大家來這可以感受屬於自己的溫暖， 一個自己的隱形避難所。<br />
+          就在 2020 年全球環境遭受巨大改變之時， 「家」Home Spa 誕生了，<br />
+          讓身心疲乏、無助徬徨的妳享受最安心、最放心的環境，<br />
+          有妳才有「家」。
+        </p>
+      </div>
+    </div>
+    <ul class="flex flex-wrap justify-center gap-12 relative right-[10vw]">
+      <li
+        class="w-[200px] h-[286px] rounded-full shadow-md bg-white p-4 flex justify-center items-center absolute top-[-130px]"
+      >
+        <div
+          class="w-full h-[256px] border border-[#6d4a2f] rounded-full flex flex-col justify-center items-center"
+        >
+          <div class="w-20 h-20">
+            <Image src={icon1} alt="誠信" />
+          </div>
+          <div class="w-[80%] h-px bg-[#6d4a2f] my-4 relative">
+            <div
+              class="absolute w-5 h-[13px] bg-white left-1/2 -translate-x-1/2 -top-[6px] bg-[url('../assets/diamond.png')] bg-no-repeat bg-center bg-contain"
+            >
+            </div>
+          </div>
+          <h3 class="text-xl font-normal text-[#6d4a2f]">誠信</h3>
+        </div>
+      </li>
+      <li
+        class="w-[200px] h-[286px] rounded-full shadow-md bg-white p-4 flex justify-center items-center absolute top-[0px] left-[120px]"
+      >
+        <div
+          class="w-full h-[256px] border border-[#6d4a2f] rounded-full flex flex-col justify-center items-center"
+        >
+          <div class="w-20 h-20">
+            <Image src={icon2} alt="專業" />
+          </div>
+          <div class="w-[80%] h-px bg-[#6d4a2f] my-4 relative">
+            <div
+              class="absolute w-5 h-[13px] bg-white left-1/2 -translate-x-1/2 -top-[6px] bg-[url('../assets/diamond.png')] bg-no-repeat bg-center bg-contain"
+            >
+            </div>
+          </div>
+          <h3 class="text-xl font-normal text-[#6d4a2f]">專業</h3>
+        </div>
+      </li>
+
+      <li
+        class="w-[200px] h-[286px] rounded-full shadow-md bg-white p-4 flex justify-center items-center absolute top-[250px] left-[-60px]"
+      >
+        <div
+          class="w-full h-[256px] border border-[#6d4a2f] rounded-full flex flex-col justify-center items-center"
+        >
+          <div class="w-20 h-20">
+            <Image src={icon3} alt="熱情" />
+          </div>
+          <div class="w-[80%] h-px bg-[#6d4a2f] my-4 relative">
+            <div
+              class="absolute w-5 h-[13px] bg-white left-1/2 -translate-x-1/2 -top-[6px] bg-[url('../assets/diamond.png')] bg-no-repeat bg-center bg-contain"
+            >
+            </div>
+          </div>
+          <h3 class="text-xl font-normal text-[#6d4a2f]">熱情</h3>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
