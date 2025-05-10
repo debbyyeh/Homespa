@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import star from "../assets/star.png";
+---
+
+<div
+  class="w-full h-[420px] bg-[url('../assets/contact.jpg')] bg-no-repeat bg-center bg-cover text-primary px-20"
+>
+  <div class="display flex justify-between items-center h-full">
+    <div class="text-center mt-10 mb-16 flex flex-col items-baseline">
+      <div class="display flex items-baseline">
+        <h2 class="f65-36 font-light text-primary mr-[20px]">Reservation</h2>
+        <p class="f30-25 text-secondary">預約服務</p>
+        <Image src={star} alt="star" class="w-[29px] h-[29px] self-start" />
+      </div>
+      <div class="f24-20 mt-6">邀您一同踏上舒壓的旅程</div>
+    </div>
+
+    <div class="w-[98px] h-[98px] btn">
+      <a
+        href="/reservation"
+        class="w-full h-full block bg-[url('../assets/reservation/arrow.png')] bg-no-repeat bg-center bg-contain hover:bg-[url('../assets/reservation/arrow_hover.png')] transition-all duration-300 ease-out"
+      ></a>
+    </div>
+  </div>
+</div>
