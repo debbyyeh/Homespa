@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+import phone from "../assets/social/icon_phone.png";
+import location from "../assets/social/icon_addr.png";
+---
+
+<div
+  class="w-full h-[120px] bg-[#c3a76c] p-2 py-10 flex items-center justify-between"
+>
+  <Image src={logo} alt="Logo" class="h-auto w-auto" />
+  <div class="flex items-center justify-between items-center">
+    <div
+      class="text-center flex flex-col items-baseline border-r-2 border-solid border-[#6d4a2f] pr-8 mr-4"
+    >
+      <div class="flex items-center justify-center gap-2">
+        <Image
+          src={phone}
+          alt="phone"
+          class="w-[23px] h-[23px] object-contain"
+        />
+        <a
+          href="tel:+886 02-2391-5385"
+          class="text-white f18-16 tracking-[0.2em] leading-[1.8]"
+          >02-2391-5385</a
+        >
+      </div>
+      <div class="flex items-center justify-center gap-2 mt-2">
+        <Image src={location} alt="location" />
+        <a
+          href="https://g.page/HomeSpa110?share"
+          target="_blank"
+          class="text-white f18-16 tracking-[0.2em] leading-[1.8]"
+          >111台北市士林區福華路22號1樓</a
+        >
+      </div>
+    </div>
+    <ul class="flex items-center justify-center gap-4">
+      <li>
+        <a href="https://www.facebook.com/HOMESPA23915385" target="_blank">
+          <div
+            class="w-[49px] h-[48px] bg-[url('../assets/social/icon_fb.png')] bg-no-repeat bg-center bg-cover hover:bg-[url('../assets/social/icon_fb_hover.png')] transition-all duration-300"
+          >
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/homespa100/" target="_blank">
+          <div
+            class="w-[49px] h-[48px] bg-[url('../assets/social/icon_ig.png')] bg-no-repeat bg-center bg-contain hover:bg-[url('../assets/social/icon_ig_hover.png')] transition-all duration-300"
+          >
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="https://lin.ee/jkFzwkG" target="_blank"
+          ><div
+            class="w-[49px] h-[48px] bg-[url('../assets/social/icon_line.png')] bg-no-repeat bg-center bg-contain hover:bg-[url('../assets/social/icon_line_hover.png')] transition-all duration-300"
+          >
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
