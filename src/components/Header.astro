@@ -3,14 +3,46 @@ import { Image } from "astro:assets";
 import Logo from "../assets/logo.png";
 ---
 
-<header class="header-style">
-  <div class="logo">
-    <Image src={Logo} alt="Logo" />
+<header id="header" class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+  <div class="container mx-auto flex items-center justify-between p-2 py-10">
+    <div class="logo">
+      <Image src={Logo} alt="Logo" class="h-auto w-auto max-h-16" />
+    </div>
+    <nav class="menuBar">
+      <ul class="flex text-gray-700 font-medium text-lg text-secondary">
+        <li class="cursor-pointer p-4 transition group">
+          <div class="f18 group-hover:hidden">預約體驗</div>
+          <div class="f16 hidden group-hover:block">RESERVATION</div>
+        </li>
+
+        <li class="cursor-pointer p-4 transition group">
+          <div
+            class="f18 group-hover:hidden transition-transform ease-in-out duration-300"
+          >
+            服務項目
+          </div>
+          <div class="f16 hidden group-hover:block">SERVICES</div>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <nav class="menuBar">
-    <ul class="display-flex subText">
-      <li>預約體驗</li>
-      <li>服務項目</li>
-    </ul>
-  </nav>
 </header>
+
+<style>
+  .scroll {
+    box-shadow: 0 0 30px 10px hsla(0, 0%, 60%, 0.2);
+    background-color: #fff;
+    height: 90px;
+  }
+</style>
+
+<script>
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("#header");
+    if (window.scrollY > 0) {
+      header!.classList.add("scroll");
+    } else {
+      header!.classList.remove("scroll");
+    }
+  });
+</script>
