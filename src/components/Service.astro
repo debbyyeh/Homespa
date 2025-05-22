@@ -21,12 +21,22 @@ const serviceInfo = [
 
 <div class="text-primary">
   <div>
-    <div class="text-center mt-10 mb-8 flex items-baseline justify-center">
-      <h2 class="f65-36 font-light text-primary mr-[20px]">Services</h2>
-      <p class="f30-25 text-secondary">服務項目</p>
-      <Image src={star} alt="star" class="w-[29px] h-[29px] self-start" />
+    <div
+      class="text-center mt-8 md:mb-8 mb-4 flex items-baseline justify-center"
+    >
+      <h2
+        class="text-4xl md:text-6xl font-light text-primary mr-[10px] md:mr-[20px]"
+      >
+        Services
+      </h2>
+      <p class="text-2xl md:text-3xl text-secondary">服務項目</p>
+      <Image
+        src={star}
+        alt="star"
+        class="w-[25px] h-[25px] md:w-[29px] md:h-[29px] self-start"
+      />
     </div>
-    <ul class="grid grid-cols-3 gap-1">
+    <ul class="grid grid-cols-2 md:grid-cols-3 gap-1">
       {
         serviceInfo.map((item, index) => {
           return (
@@ -38,10 +48,12 @@ const serviceInfo = [
               />
               <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
               <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center z-10">
-                <div class="text-white f26-20 mb-8">{item.title}</div>
+                <div class="text-white text-base md:text-normal lg:text-2xl md:mb-8">
+                  {item.title}
+                </div>
                 <a
                   href="#"
-                  class="relative text-secondary text-lg font-medium 
+                  class="relative text-secondary md:text-lg text-sm font-medium 
                   after:content-[''] after:w-0 after:h-px after:bg-[#c3a76c] after:absolute after:left-1/2 after:bottom-[-5px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 hover:after:w-[91px]"
                 >
                   MORE
