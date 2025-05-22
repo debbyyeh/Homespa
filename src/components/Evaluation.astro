@@ -31,24 +31,38 @@ const evaluations = [
 ];
 ---
 
-<section class="px-20 mb-8">
-  <div class="text-center mt-10 mb-16 flex items-baseline">
-    <h2 class="f65-36 font-light text-primary mr-[20px]">Evaluation</h2>
-    <p class="f30-25 text-secondary">客戶評價</p>
-    <Image src={star_title} alt="star" class="w-[29px] h-[29px] self-start" />
+<section class="md:px-20 px-5 mb-8">
+  <div
+    class="text-center mt-10 mb-16 flex items-baseline justify-center md:justify-start"
+  >
+    <h2
+      class="text-4xl md:text-6xl font-light text-primary mr-[10px] md:mr-[20px]"
+    >
+      Evaluation
+    </h2>
+    <p class="text-2xl md:text-3xl text-secondary">客戶評價</p>
+    <Image
+      src={star_title}
+      alt="star"
+      class="w-[20px] h-[20px] md:w-[29px] md:h-[29px] self-start"
+    />
   </div>
-  <ul class="grid grid-cols-2 gap-12">
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-12">
     {
       evaluations.map((evaluation) => (
         <a href={evaluation.href} target="_blank" class="block w-full ">
-          <li class=" w-full bg-[#faf5f0] pt-[55px] pb-[35px] px-[36px] relative cursor-pointer">
-            <div class="w-[105px] h-[105px] border-2 border-white rounded-full bg-[#f2e6d7] flex items-center justify-center absolute top-[-30px] left-[4%] border-2 border-[#f2e6d7] shadow-[0_0_10px_#f2e6d7]">
-              <Image src={customer} alt="customer" class="w-[71px] h-[71px]" />
+          <li class=" w-full bg-[#faf5f0] pt-[55px] pb-[35px] px-[24px] md:px-[36px] relative cursor-pointer">
+            <div class="w-[75px] h-[75px] md:w-[105px] md:h-[105px] border-2 border-white rounded-full bg-[#f2e6d7] flex items-center justify-center absolute top-[-30px] left-[4%] border-2 border-[#f2e6d7] shadow-[0_0_10px_#f2e6d7]">
+              <Image
+                src={customer}
+                alt="customer"
+                class="w-[51px] h-[51px] md:w-[71px] md:h-[71px]"
+              />
             </div>
-            <div class="mt-[50px] leading-[1.8] f18-16 text-primary tracking-wide whitespace-normal">
+            <div class="mt-[25px] md:mt-[50px] leading-[1.8] text-normal md:text-xl text-primary tracking-wide whitespace-normal">
               {evaluation.content}
             </div>
-            <div class="f65-36 absolute top-[-40px] right-[4%] text-[#c8c8c8]">
+            <div class="text-5xl md:text-7xl absolute top-[-18px] md:top-[-40px] right-[4%] text-[#c8c8c8]">
               {evaluation.id}
             </div>
             <div class="absolute top-[50px] right-[6%] flex items-center">
