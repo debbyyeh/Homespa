@@ -2,24 +2,21 @@
 import About from "../components/About.astro";
 import Banner from "../components/Banner.astro";
 import Evaluation from "../components/Evaluation.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 import Reservation from "../components/Reservation.astro";
 import Service from "../components/Service.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <Header />
   <Banner />
-  <div class="note text-primary mx-auto mt-10 mb-10">
-    首次新客體驗價享8折優惠
+  <div class="note text-primary mx-auto mt-10 mb-10 tracking-[0.1em]">
+    好友推推有9折<br />
+    會員VIP當月另享壽星優惠
   </div>
   <About />
   <Service />
   <Evaluation />
   <Reservation />
-  <Footer />
 </Layout>
 
 <style>

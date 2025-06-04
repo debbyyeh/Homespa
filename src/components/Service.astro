@@ -10,20 +10,18 @@ import service05 from "../assets/service/image05.jpg";
 import service06 from "../assets/service/image06.jpg";
 
 const serviceInfo = [
-  { pic: service01, title: "臉部保養" },
-  { pic: service02, title: "身體保養" },
-  { pic: service03, title: "脫毛處理" },
-  { pic: service04, title: "美睫" },
-  { pic: service05, title: "手足保養（美甲）" },
-  { pic: service06, title: "紋繡" },
+  { pic: service01, title: "臉部保養", id: "face" },
+  { pic: service02, title: "身體保養", id: "body" },
+  { pic: service03, title: "脫毛處理", id: "waxing" },
+  { pic: service04, title: "美睫", id: "eyelash" },
+  { pic: service05, title: "手足保養（美甲）", id: "nail" },
+  { pic: service06, title: "紋繡", id: "microblading" },
 ];
 ---
 
-<div class="text-primary">
+<div class="text-primary" id="#service">
   <div>
-    <div
-      class="text-center mt-8 md:mb-8 mb-4 flex items-baseline justify-center"
-    >
+    <div class="text-center my-8 flex items-baseline justify-center">
       <h2
         class="text-4xl md:text-6xl font-light text-primary mr-[10px] md:mr-[20px]"
       >
@@ -40,7 +38,10 @@ const serviceInfo = [
       {
         serviceInfo.map((item, index) => {
           return (
-            <li class="relative group cursor-pointer overflow-hidden">
+            <li
+              class="relative group cursor-pointer overflow-hidden"
+              onclick="location.href=`/service/${item.id}`"
+            >
               <img
                 src={item.pic.src}
                 alt={item.pic.src}
