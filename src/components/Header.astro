@@ -9,51 +9,82 @@ import Logo from "../assets/logo.png";
 >
   <div
     id="container"
-    class="mx-auto flex items-center justify-between p-10 transition-all duration-300"
+    class="mx-auto flex items-baseline md:items-center justify-between transition-all duration-300"
   >
     <div>
-      <Image src={Logo} alt="Logo" class="h-auto w-auto max-h-16" />
+      <Image src={Logo} alt="Logo" class="md:h-auto md:w-auto max-h-16" />
     </div>
-    <nav class="menuBar">
+    <div class="block md:hidden">
+      <button
+        id="menu-toggle"
+        class="text-gray-700 focus:outline-none"
+        aria-label="Toggle menu"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+    <nav class="menuBar hidden md:block">
       <ul class="flex text-gray-700 font-medium text-lg text-secondary">
-        <li class="cursor-pointer p-4 transition group">
-          <div class="f18 group-hover:hidden">預約體驗</div>
-          <div class="f16 hidden group-hover:block">RESERVATION</div>
+        <li class="cursor-pointer p-4 transition group text-center w-50%">
+          <a class="text-normal group-hover:hidden">預約體驗</a>
+          <a class="text-sm hidden group-hover:block">RESERVATION</a>
         </li>
 
         <li class="cursor-pointer p-4 transition group">
-          <div
-            class="f18 group-hover:hidden transition-transform ease-in-out duration-300"
+          <a
+            href="#/service"
+            class="text-normal group-hover:hidden transition-transform ease-in-out duration-300"
           >
             服務項目
-          </div>
-          <div class="f16 hidden group-hover:block">SERVICES</div>
+          </a>
+          <a class="f16 hidden group-hover:block" href="/#service">SERVICES</a>
         </li>
       </ul>
     </nav>
   </div>
-</header>
 
-<style>
-  .scroll {
-    box-shadow: 0 0 30px 10px hsla(0, 0%, 60%, 0.2);
-    background-color: #fff;
-    height: 90px;
-  }
-</style>
-
-<script>
-  window.addEventListener("scroll", () => {
-    const header = document.querySelector("#header");
-    const container = document.querySelector("#container");
-    if (window.scrollY > 0) {
-      header!.classList.add("scroll");
-      container!.classList.remove("p-10");
-      container!.classList.add("p-4");
-    } else {
-      header!.classList.remove("scroll");
-      container!.classList.remove("p-4");
-      container!.classList.add("p-10");
+  <style>
+    .scroll {
+      box-shadow: 0 0 30px 10px hsla(0, 0%, 60%, 0.2);
+      background-color: #fff;
     }
-  });
-</script>
+  </style>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector("#header");
+      const container = document.querySelector("#container");
+      if (window.scrollY > 0) {
+        header!.classList.add("scroll");
+        if (window.innerWidth < 768) {
+          container!.classList.remove("p-10");
+          container!.classList.add("p-4");
+        } else {
+          container!.classList.remove("p-4");
+          container!.classList.add("p-10");
+        }
+      } else {
+        header!.classList.remove("scroll");
+        if (window.innerWidth < 768) {
+          container!.classList.remove("p-4");
+          container!.classList.add("p-10");
+        } else {
+          container!.classList.remove("p-10");
+          container!.classList.add("p-4");
+        }
+      }
+    });
+  </script>
+</header>
