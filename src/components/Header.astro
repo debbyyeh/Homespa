@@ -5,13 +5,13 @@ import Logo from "../assets/logo.png";
 
 <header
   id="header"
-  class="bg-white shadow-md fixed top-0 left-0 w-full z-50 transition-all duration-300 p-4"
+  class="bg-white shadow-md fixed top-0 left-0 w-full z-50 transition-all duration-300 p-6"
 >
   <div
     id="container"
     class="mx-auto flex items-baseline md:items-center justify-between transition-all duration-300"
   >
-    <a href="/">
+    <a href="/" class="max-w-[150px] md:max-w-[250px]">
       <Image src={Logo} alt="Logo" class="md:h-auto md:w-auto max-h-16" />
     </a>
     <div class="block md:hidden">
@@ -68,23 +68,24 @@ import Logo from "../assets/logo.png";
     window.addEventListener("scroll", () => {
       const header = document.querySelector("#header");
       const container = document.querySelector("#container");
+
       if (window.scrollY > 0) {
         header!.classList.add("scroll");
         if (window.innerWidth < 768) {
-          container!.classList.remove("p-10");
+          container!.classList.remove("p-2");
           container!.classList.add("p-4");
         } else {
-          container!.classList.remove("p-4");
-          container!.classList.add("p-10");
+          container!.classList.remove("p-2");
+          container!.classList.add("p-6");
         }
       } else {
         header!.classList.remove("scroll");
         if (window.innerWidth < 768) {
           container!.classList.remove("p-4");
-          container!.classList.add("p-10");
+          container!.classList.add("p-2");
         } else {
-          container!.classList.remove("p-10");
-          container!.classList.add("p-4");
+          container!.classList.remove("p-6");
+          container!.classList.add("p-2");
         }
       }
     });
