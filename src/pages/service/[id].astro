@@ -35,44 +35,52 @@ const detailInfo = serviceInfo.find((item) => item.id === id) as
 if (!detailInfo) {
   throw new Error(`Service with id ${id} not found`);
 }
+
+const textStyle =
+  "text-black group-hover:text-[#c3a76c] transition-colors duration-300 text-center";
 ---
 
 <ServiceLayout>
   <div
-    class="max-w-1/2 w-full absolute top-1/2 left-1/2 transform -translate-[50%]"
+    id="container"
+    class="bg-[url('../assets/service/banner.jpg')] bg-no-repeat bg-center bg-cover h-[300px] md:h-[750px] relative px-[30px] md:px-0"
   >
-    <div class="text-center mb-8 flex items-baseline justify-center">
-      <h2
-        class="text-4xl md:text-6xl font-light text-primary mr-[10px] md:mr-[20px]"
-      >
-        Services
-      </h2>
-      <p class="text-2xl md:text-3xl text-secondary">課程服務</p>
-      <Image
-        src={star}
-        alt="star"
-        class="w-[25px] h-[25px] md:w-[29px] md:h-[29px] self-start"
-      />
+    <div
+      class="md:max-w-1/2 w-full mx-auto absolute top-[50%] left-[50%] -translate-[50%]"
+    >
+      <div class="text-center mb-8 flex items-baseline justify-center">
+        <h2
+          class="text-4xl md:text-6xl font-light text-primary mr-[10px] md:mr-[20px]"
+        >
+          Services
+        </h2>
+        <p class="text-2xl md:text-3xl text-secondary">課程服務</p>
+        <Image
+          src={star}
+          alt="star"
+          class="w-[25px] h-[25px] md:w-[29px] md:h-[29px] self-start"
+        />
+      </div>
     </div>
+
     <Image
       src={detailInfo.bannerUrl}
       alt={detailInfo.id}
       width={500}
       height={200}
       loading="lazy"
-      class="w-full h-[200px] object-cover absolute bottom-[-225px]"
+      class="lg:max-w-1/2 md:max-w-2/3 max-w-4/5 w-full h-[90px] md:h-[200px] object-cover absolute bottom-0 left-1/2 -translate-x-[50%]"
     />
   </div>
-
   <div
-    class="bg-custom-gradient text-primary p-[50px] max-w-1/2 w-full mx-auto"
+    class="bg-custom-gradient text-primary px-[40px] py-[20px] md:p-[50px] lg:max-w-1/2 md:max-w-2/3 w-full mx-auto"
   >
-    <div class="text-center font-medium text-2xl mb-[30px]">
+    <div class="text-center font-medium text-2xl mb-[20px] md:mb-[30px]">
       {detailInfo.name}
     </div>
     <div class="w-full h-[1px] bg-[#6d4a2f] relative mx-auto">
       <div
-        class="w-[30px] h-[11px] absolute bg-[#fff] top-1/2 left-1/2 -translate-[50%] transform bg-[url('../assets/diamond.png')] bg-no-repeat bg-center bg-contain"
+        class="w-[30px] h-[11px] absolute top-1/2 left-1/2 -translate-[50%] transform bg-gradient-diamond"
       >
       </div>
     </div>
@@ -80,33 +88,49 @@ if (!detailInfo) {
       detailInfo.courses.map((item, index) => {
         return (
           <div
-            class={`text-small py-[15px] border-b flex ${
+            class={`text-small py-[15px] border-b flex flex-col md:flex-row ${
               item.courseCategory ? "justify-between" : "justify-center"
             } items-center`}
           >
             {item.courseCategory && (
               <div
-                class={`text-center ${detailInfo.id === "body" ? "max-w-1/4" : "max-w-1/5"}  w-full bg-[#6d4a2f] rounded-full text-white py-[12px] px-[15px] mr-[30px] whitespace-nowrap`}
+                class={`text-center max-w-1/2 ${detailInfo.id === "body" ? "md:max-w-1/4" : "md:max-w-1/5"}  w-full bg-[#6d4a2f] rounded-full text-white py-[12px] px-[15px] md:mr-[30px] whitespace-nowrap`}
               >
                 {item.courseCategory}
               </div>
             )}
 
-            <div class="w-4/5">
+            <div
+              class={`w-full ${item.courseCategory ? "md:w-4/5" : "md:w-full"} `}
+            >
               {item.categoryLists.map((course, idx) => (
-                <ul class="flex justify-between items-center my-[20px] transition-colors duration-300 group cursor-pointer">
+                <ul class="flex flex-col md:flex-row justify-between items-start md:items-center mt-[20px] transition-colors duration-300 group cursor-pointer">
+                  <div class="md:hidden mb-[10px]">
+                    <li
+                      class={`text-[#6d4a2f] ${detailInfo.id === "face" ? "basis-7xs" : "basis-5xs"} before-diamond group-hover:text-[#c3a76c] transition-colors duration-300`}
+                    >
+                      {course.courseName}
+                    </li>
+                  </div>
                   <li
-                    class={`text-[#6d4a2f] ${detailInfo.id === "face" ? "basis-7xs" : "basis-5xs"} before-diamond group-hover:text-[#c3a76c] transition-colors duration-300`}
+                    class={`hidden md:block text-[#6d4a2f] ${detailInfo.id === "face" ? "basis-7xs" : "basis-5xs"} before-diamond group-hover:text-[#c3a76c] transition-colors duration-300`}
                   >
                     {course.courseName}
                   </li>
-                  <li class="text-black group-hover:text-[#c3a76c] transition-colors duration-300 text-center ">
+                  <div class="md:hidden flex items-center justify-between w-full">
+                    <li class={`${textStyle}`}>{course.duration}分鐘</li>
+                    <li class={`${textStyle}`}>${course.price}</li>
+                    <span class="bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none">
+                      詳細介紹
+                    </span>
+                  </div>
+                  <li class={`hidden md:block ${textStyle}`}>
                     {course.duration}分鐘
                   </li>
-                  <li class="text-black group-hover:text-[#c3a76c] transition-colors duration-300">
+                  <li class={`hidden md:block ${textStyle}`}>
                     ${course.price}
                   </li>
-                  <span class="bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none">
+                  <span class="hidden md:block bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none">
                     詳細介紹
                   </span>
                 </ul>

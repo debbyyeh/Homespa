@@ -17,11 +17,11 @@ import { Image } from "astro:assets";
   <body>
     <div
       id="container"
-      class="mx-auto flex items-start justify-between p-10 bg-[url('../assets/service/banner.jpg')] bg-no-repeat bg-center bg-cover h-[750px] relative"
+      class="mx-auto md:flex md:items-start md:justify-between p-10"
     >
-      <div>
+      <a href="/">
         <Image src={Logo} alt="Logo" class="md:h-auto md:w-auto max-h-16" />
-      </div>
+      </a>
       <nav class="menuBar hidden md:block">
         <ul class="flex text-gray-700 font-medium text-lg text-secondary">
           <li class="cursor-pointer p-4 transition group text-center w-50%">
