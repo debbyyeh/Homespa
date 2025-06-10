@@ -7,19 +7,45 @@
 }
 
 @layer utilities {
-    .before-diamond {
-      position: relative;
-       &::after{
-        content: "";
-        width: 12px;
-        height: 12px;
-        position: absolute;
-        top: 6px;
-        left: -15px;
-        background: url('../assets/diamond.png') center/contain no-repeat;
-       }
+    .bg-gradient-diamond {
+        background:
+        url('../assets/diamond.png') center/contain no-repeat;
+        background-color: linear-gradient(180deg, #faf5f0, hsla(0, 0%, 100%, 0));
+      
     }
   }
+
+  @layer utilities {
+    .before-diamond {
+      position: relative;
+    }
+  
+    .before-diamond::before {
+      content: "";
+      position: absolute;
+      background: url('../assets/diamond.png') center/contain no-repeat;
+      display: block;
+      width: var(--diamond-width, 18px);
+      height: var(--diamond-height, 18px);
+      top: var(--diamond-top, 0);
+      left: var(--diamond-left, 0);
+    }
+  }
+
+  @layer utilities {
+    @keyframes fade-cycle {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      40% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+  
+    .animate-fade-cycle {
+      animation: fade-cycle 10s infinite;
+    }
+  }
+  
 
 @theme {
     --container-4xs: 14rem; 

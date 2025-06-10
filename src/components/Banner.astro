@@ -5,54 +5,29 @@ import banner_02 from "../assets/banner2.jpg";
 ---
 
 <section
-  class="bg-[#faf5f0] flex items-center justify-between px-16 mt-[140px]"
+  class="bg-[#faf5f0] flex flex-col flex-col-reverse items-center justify-between md:px-16 mt-[100px] md:mt-[110px]"
 >
-  <div class="text-left space-y-4 max-w-ful text-primary">
-    <div class="text-[6.6vw] font-light">Experience a</div>
-    <div class="text-[6.6vw] font-light">new day</div>
-    <div class="text-[1.25rem]">
-      美與心靈的交會之境，在這裡找到內外的平衡與歸屬
-    </div>
+  <div class="text-left space-y-2 text-primary mt-[-15px] z-10">
+    <div class="md:text-[6.6vw] text-5xl font-light">Experience a</div>
+    <div class="md:text-[6.6vw] text-5xl font-light">new day</div>
+    <div class="md:text-[1.25rem] text-medium">美與心靈的交會之境</div>
   </div>
 
-  <div class="w-1/2 overflow-hidden relative">
-    <div class="carousel flex w-[300%] animate-slide">
-      <Image
-        src={banner_01}
-        alt="Banner 1"
-        class="w-1/3 h-full object-cover"
-        loading="lazy"
-      />
-      <Image
-        src={banner_02}
-        alt="Banner 1"
-        class="w-1/3 h-full object-cover"
-        loading="lazy"
-      />
-    </div>
+  <div class="relative w-full aspect-[16/9] overflow-hidden">
+    <Image
+      src={banner_01}
+      alt="Banner 1"
+      class="absolute inset-0 w-full h-full object-cover animate-fade-cycle"
+      loading="lazy"
+    />
+    <Image
+      style={{
+        "animation-delay": "5s",
+      }}
+      src={banner_02}
+      alt="Banner 2"
+      class="absolute inset-0 w-full h-full object-cover animate-fade-cycle"
+      loading="lazy"
+    />
   </div>
 </section>
-
-<style>
-  @keyframes slide {
-    0%,
-    20% {
-      transform: translateX(0); /* 第一张图片停留 */
-    }
-    33%,
-    53% {
-      transform: translateX(-100%); /* 第二张图片停留 */
-    }
-    66%,
-    86% {
-      transform: translateX(-200%); /* 第三张图片停留 */
-    }
-    100% {
-      transform: translateX(0); /* 回到第一张图片 */
-    }
-  }
-
-  .carousel {
-    animation: slide 15s infinite; /* 总时长为 15 秒，每张图片停留 5 秒 */
-  }
-</style>
