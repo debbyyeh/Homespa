@@ -9,9 +9,21 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <Banner />
-  <div class="note text-primary mx-auto mt-10 mb-10 tracking-[0.1em]">
-    好友推推有9折<br />
-    會員VIP當月另享壽星優惠
+  <div
+    style={{
+      "--diamond-width": "12px",
+      "--diamond-height": "12px",
+      "--diamond-top": "15px",
+      "--diamond-left": "-15px",
+    }}
+    class="py-[20px] text-primary text-sm tracking-[0.1em] bg-[#faf5f0]"
+  >
+    <div
+      class="w-1/2 pb-[10px] border-b-1 border-[#c3a76c] before-diamond ml-[50px]"
+    >
+      好友推推享9折<br />
+      會員VIP當月另享壽星優惠
+    </div>
   </div>
   <About />
   <Service />
@@ -19,21 +31,4 @@ import Layout from "../layouts/Layout.astro";
   <Reservation />
 </Layout>
 
-<style>
-  .note {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #c3a76c;
-    padding-bottom: 10px;
-  }
-
-  .note::before {
-    content: "";
-    width: 18px;
-    height: 18px;
-    background: url(../assets/diamond.png) center/contain no-repeat;
-    display: block;
-    margin-right: 8px;
-  }
-</style>
+<style></style>
