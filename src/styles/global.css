@@ -54,14 +54,17 @@
     --container-7xs: 8rem;
 }
 
+@layer base {
+  body {
+    font-family: 'Gilda Display', sans-serif;
+    line-height: normal;
+  }
+}
+
 html {
     scroll-behavior: smooth;
   }
 
-body {
-    font-family: 'Noto Sans TC', sans-serif;
-    line-height: normal;
-}
 
 .text-primary {
     color: #6d4a2f;
