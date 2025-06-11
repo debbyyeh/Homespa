@@ -1,0 +1,13 @@
+---
+interface Props {
+  isMobile: boolean;
+}
+
+const { isMobile } = Astro.props;
+---
+
+<span
+  class={`${isMobile ? "block mt-2" : "hidden md:block"} bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none text-center w-fit`}
+>
+  詳細介紹
+</span>

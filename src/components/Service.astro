@@ -17,10 +17,6 @@ const serviceInfo = [
   { pic: service05, title: "手足保養（美甲）", id: "nail" },
   { pic: service06, title: "紋繡", id: "microblading" },
 ];
-
-function handleClick(serviceId: string) {
-  console.log(`Service clicked: ${serviceId}`);
-}
 ---
 
 <div class="text-primary" id="#service">
@@ -42,10 +38,9 @@ function handleClick(serviceId: string) {
       {
         serviceInfo.map((item, index) => {
           return (
-            <button
+            <li
               data-id={`${item.id}`}
               class="serviceItem relative group cursor-pointer overflow-hidden"
-              onclick="console.log(123)"
             >
               <img
                 src={item.pic.src}
@@ -65,7 +60,7 @@ function handleClick(serviceId: string) {
                   MORE
                 </a>
               </div>
-            </button>
+            </li>
           );
         })
       }
