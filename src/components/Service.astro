@@ -17,6 +17,10 @@ const serviceInfo = [
   { pic: service05, title: "手足保養（美甲）", id: "nail" },
   { pic: service06, title: "紋繡", id: "microblading" },
 ];
+
+function handleClick(serviceId: string) {
+  console.log(`Service clicked: ${serviceId}`);
+}
 ---
 
 <div class="text-primary" id="#service">
@@ -34,13 +38,14 @@ const serviceInfo = [
         class="w-[25px] h-[25px] md:w-[29px] md:h-[29px] self-start"
       />
     </div>
-    <ul class="grid grid-cols-2 md:grid-cols-3 gap-1">
+    <ul id="group" class="grid grid-cols-2 md:grid-cols-3 gap-1">
       {
         serviceInfo.map((item, index) => {
           return (
-            <li
-              class="relative group cursor-pointer overflow-hidden"
-              onclick="location.href=`/service/${item.id}`"
+            <button
+              data-id={`${item.id}`}
+              class="serviceItem relative group cursor-pointer overflow-hidden"
+              onclick="console.log(123)"
             >
               <img
                 src={item.pic.src}
@@ -60,7 +65,7 @@ const serviceInfo = [
                   MORE
                 </a>
               </div>
-            </li>
+            </button>
           );
         })
       }
@@ -68,4 +73,12 @@ const serviceInfo = [
   </div>
 </div>
 
-<style></style>
+<script>
+  const serviceItems = document.querySelectorAll(".serviceItem");
+  serviceItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const id = item.getAttribute("data-id");
+      window.location.href = `/service/${id}`;
+    });
+  });
+</script>
