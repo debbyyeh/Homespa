@@ -66,12 +66,12 @@ const textStyle =
       width={500}
       height={200}
       loading="lazy"
-      class="md:max-w-2/3 max-w-4/5 w-full h-[90px] md:h-[200px] object-cover absolute bottom-0 left-1/2 -translate-x-1/2"
+      class="lg:max-w-3xl md:max-w-2xl max-w-4/5 w-full h-[90px] md:h-[200px] object-cover absolute bottom-0 left-1/2 -translate-x-1/2"
     />
   </div>
 
   <div
-    class="bg-custom-gradient text-primary px-[40px] py-[20px] md:p-[50px] md:max-w-2/3 w-full mx-auto"
+    class="bg-custom-gradient text-primary px-[40px] md:p-[50px] lg:max-w-3xl md:max-w-2xl w-full mx-auto mb-[30px]"
   >
     <div class="text-center font-medium text-2xl mb-[20px] md:mb-[30px]">
       {detailInfo.name}
@@ -87,11 +87,11 @@ const textStyle =
     {
       detailInfo.courses.map((item) => (
         <div
-          class={`text-small py-[15px] border-b flex flex-col md:flex-row ${item.courseCategory ? "justify-between" : "justify-center"} items-center`}
+          class={`md:text-sm border-b flex flex-col md:flex-row ${item.courseCategory ? "justify-between" : "justify-center"} items-center`}
         >
           {item.courseCategory && (
             <div
-              class={`text-center max-w-1/2 ${detailInfo.id === "body" ? "md:max-w-1/5" : "md:max-w-1/6"} w-full bg-[#6d4a2f] rounded-full text-white py-[12px] px-[15px] md:mr-[30px] whitespace-nowrap`}
+              class={`my-[15px] text-center max-w-1/2 ${detailInfo.id === "body" ? "md:max-w-1/5 lg:max-w-1/6" : "md:max-w-1/6"} w-full bg-[#6d4a2f] rounded-full text-white py-[12px] px-[15px] md:mr-[30px] whitespace-nowrap `}
             >
               {item.courseCategory}
             </div>
@@ -101,7 +101,7 @@ const textStyle =
             class={`w-full ${item.courseCategory ? "md:w-4/5" : "md:w-full"}`}
           >
             {item.categoryLists.map((course) => (
-              <ul class="flex flex-col md:flex-row justify-between items-start md:items-center mt-[20px] transition-colors duration-300 group cursor-pointer">
+              <ul class="flex flex-col md:flex-row justify-between items-start md:items-center mt-[20px] mb-[20px] transition-colors duration-300 group cursor-pointer">
                 <div class="md:hidden mb-[10px]">
                   <li
                     style={{
