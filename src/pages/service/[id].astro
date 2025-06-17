@@ -14,7 +14,7 @@ export const getStaticPaths = () => {
   ];
 };
 
-interface ServiceInfoProps {
+export interface ServiceInfoProps {
   id: string;
   name: string;
   bannerUrl: string;
@@ -22,14 +22,17 @@ interface ServiceInfoProps {
     courseCategory?: string;
     categoryLists: Array<{
       courseName: string;
+      courseImageUrl?: string;
       duration: number;
       price: number;
+      courseId?: string;
     }>;
   }>;
 }
 
 const { id } = Astro.params;
 import serviceInfo from "../../data.json";
+import Popup from "./Popup.astro";
 const detailInfo = serviceInfo.find((item) => item.id === id) as
   | ServiceInfoProps
   | undefined;
@@ -69,9 +72,8 @@ const textStyle =
       class="lg:max-w-3xl md:max-w-2xl max-w-4/5 w-full h-[90px] md:h-[200px] object-cover absolute bottom-0 left-1/2 -translate-x-1/2"
     />
   </div>
-
   <div
-    class="bg-custom-gradient text-primary px-[40px] md:p-[50px] lg:max-w-3xl md:max-w-2xl w-full mx-auto mb-[30px]"
+    class="bg-custom-gradient text-primary px-[40px] md:p-[50px] lg:max-w-3xl md:max-w-2xl w-full mx-auto mb-[30px] relative"
   >
     <div class="text-center font-medium text-2xl mb-[20px] md:mb-[30px]">
       {detailInfo.name}
@@ -87,6 +89,7 @@ const textStyle =
     {
       detailInfo.courses.map((item) => (
         <div
+          id="service-list"
           class={`md:text-sm border-b flex flex-col md:flex-row ${item.courseCategory ? "justify-between" : "justify-center"} items-center`}
         >
           {item.courseCategory && (
@@ -132,7 +135,12 @@ const textStyle =
                   <li class={textStyle}>{course.duration}分鐘</li>
                   <li class={textStyle}>${course.price}</li>
                   {(detailInfo.id === "face" || detailInfo.id === "body") && (
-                    <CourseBtn isMobile={true} />
+                    <button
+                      data-id={`${course.courseId}`}
+                      class="block mt-2 bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none text-center w-fit"
+                    >
+                      詳細介紹
+                    </button>
                   )}
                 </div>
 
@@ -141,7 +149,12 @@ const textStyle =
                 </li>
                 <li class={`hidden md:block ${textStyle}`}>${course.price}</li>
                 {(detailInfo.id === "face" || detailInfo.id === "body") && (
-                  <CourseBtn isMobile={false} />
+                  <button
+                    data-id={`${course.courseId}`}
+                    class="more block mt-2 bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none text-center w-fit"
+                  >
+                    詳細介紹
+                  </button>
                 )}
               </ul>
             ))}
@@ -149,5 +162,37 @@ const textStyle =
         </div>
       ))
     }
+    <Popup />
   </div>
 </ServiceLayout>
+
+<script>
+  function showPopup() {
+    const popup = document.getElementById("popup")!;
+    popup.classList.remove("hidden");
+    const serviceContent = document.querySelectorAll("#service-list");
+    serviceContent.forEach((content) => {
+      content.classList.add("hidden");
+    });
+  }
+
+  document.querySelectorAll(".more").forEach((item) => {
+    item.addEventListener("click", () => {
+      const id = item.getAttribute("data-id");
+      if (id) {
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set("id", id);
+        history.pushState({}, "", newUrl);
+        showPopup();
+      }
+    });
+  });
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    if (id) {
+      showPopup();
+    }
+  });
+</script>

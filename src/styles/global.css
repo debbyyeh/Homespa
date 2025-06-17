@@ -23,8 +23,44 @@
     .before-diamond::before {
       content: "";
       position: absolute;
-      background: url('../assets/diamond.png') center/contain no-repeat;
+      background: var(--diamond-image, url('../assets/diamond.png')) center/contain no-repeat;
       display: block;
+      width: var(--diamond-width, 18px);
+      height: var(--diamond-height, 18px);
+      top: var(--diamond-top, 0);
+      left: var(--diamond-left, 0);
+    }
+  }
+  @layer utilities {
+    .img-wrap {
+      position: relative;
+    }
+  
+    .img-wrap:before {
+      content: "";
+      position: absolute;
+      border-color: #fff transparent transparent transparent;
+      border-width:207px 135px 0 0;
+      border-style:solid;
+      left:-1px;
+      top:0;
+      width:0;
+      height:0
+  }
+}
+
+
+  @layer utilities {
+    .before-circle {
+      position: relative;
+    }
+  
+    .before-circle:before {
+      content: "";
+      position: absolute;
+      display: block;
+      background-color: #6d4a2f;
+      border-radius: 50%;
       width: var(--diamond-width, 18px);
       height: var(--diamond-height, 18px);
       top: var(--diamond-top, 0);
