@@ -32,7 +32,7 @@ export interface ServiceInfoProps {
 
 const { id } = Astro.params;
 import serviceInfo from "../../data.json";
-import Popup from "./Popup.astro";
+import Popup from "../../components/Popup.astro";
 const detailInfo = serviceInfo.find((item) => item.id === id) as
   | ServiceInfoProps
   | undefined;
@@ -42,6 +42,13 @@ if (!detailInfo) {
 
 const textStyle =
   "text-black group-hover:text-[#c3a76c] transition-colors duration-300 text-center";
+
+const params = new URLSearchParams(Astro.request.url.split("?")[1]);
+const courseId = params.get("id");
+
+if (courseId) {
+  console.log("courseId", courseId);
+}
 ---
 
 <ServiceLayout>
@@ -73,7 +80,7 @@ const textStyle =
     />
   </div>
   <div
-    class="bg-custom-gradient text-primary px-[40px] md:p-[50px] lg:max-w-3xl md:max-w-2xl w-full mx-auto mb-[30px] relative"
+    class="bg-custom-gradient text-primary md:px-[40px] px-[30px] py-[20px] md:p-[50px] lg:max-w-3xl md:max-w-2xl w-full mx-auto mb-[30px] relative"
   >
     <div class="text-center font-medium text-2xl mb-[20px] md:mb-[30px]">
       {detailInfo.name}
@@ -137,7 +144,7 @@ const textStyle =
                   {(detailInfo.id === "face" || detailInfo.id === "body") && (
                     <button
                       data-id={`${course.courseId}`}
-                      class="block mt-2 bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none text-center w-fit"
+                      class="more block mt-2 bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none text-center w-fit"
                     >
                       詳細介紹
                     </button>
@@ -147,11 +154,13 @@ const textStyle =
                 <li class={`hidden md:block ${textStyle}`}>
                   {course.duration}分鐘
                 </li>
-                <li class={`hidden md:block ${textStyle}`}>${course.price}</li>
+                <li class={`hidden md:block ${textStyle} font-bold`}>
+                  ${course.price}
+                </li>
                 {(detailInfo.id === "face" || detailInfo.id === "body") && (
                   <button
                     data-id={`${course.courseId}`}
-                    class="more block mt-2 bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none text-center w-fit"
+                    class="more md:block hidden mt-2 bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none text-center w-fit font-bold cursor-pointer"
                   >
                     詳細介紹
                   </button>
@@ -162,7 +171,7 @@ const textStyle =
         </div>
       ))
     }
-    <Popup />
+    <Popup items={detailInfo} />
   </div>
 </ServiceLayout>
 
@@ -176,6 +185,15 @@ const textStyle =
     });
   }
 
+  function hidePopup() {
+    const popup = document.getElementById("popup")!;
+    popup.classList.add("hidden");
+    const serviceContent = document.querySelectorAll("#service-list");
+    serviceContent.forEach((content) => {
+      content.classList.remove("hidden");
+    });
+  }
+
   document.querySelectorAll(".more").forEach((item) => {
     item.addEventListener("click", () => {
       const id = item.getAttribute("data-id");
@@ -184,8 +202,22 @@ const textStyle =
         newUrl.searchParams.set("id", id);
         history.pushState({}, "", newUrl);
         showPopup();
+        window.scrollTo({
+          top: document.getElementById("popup")!.offsetTop,
+          behavior: "smooth",
+        });
       }
     });
+  });
+
+  window.addEventListener("popstate", () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    if (id) {
+      showPopup();
+    } else {
+      hidePopup();
+    }
   });
 
   window.addEventListener("DOMContentLoaded", () => {

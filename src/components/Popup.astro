@@ -4,6 +4,9 @@ console.log("courseId", courseId);
 import { Image } from "astro:assets";
 const imageUrl =
   "https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
+
+const { course } = Astro.props;
+console.log("course", course);
 ---
 
 {
@@ -11,15 +14,15 @@ const imageUrl =
     //   courseId ? (
     <div class="hidden w-full my-[20px]" id="popup">
       <div
-        class={`my-[20px] text-center max-w-1/5 w-full bg-[#6d4a2f] rounded-full text-white py-[12px] px-[15px] whitespace-nowrap mx-auto`}
+        class={`my-[20px] text-center max-w-1/3 md:max-w-1/5 w-full bg-[#6d4a2f] rounded-full text-white py-[12px] px-[15px] whitespace-nowrap mx-auto`}
       >
         淨化保濕
       </div>
       <div class="text-xl text-center mb-[20px]">深層平衡毛孔護理</div>
-      <div class="w-5 h-[13px] bg-[url('../assets/diamond.png')] bg-no-repeat bg-center bg-contain mx-auto mb-[20px]" />
-      <div class="flex items-center max-h-[200px] overflow-hidden mb-[80px]">
-        <div class="w-1/2 ">
-          <div class="bg-[#c3a76c] rounded-[5px] text-center text-white text-xl tracking-wider py-[6px] w-1/3 mb-[10px]">
+      <div class="w-5 h-[13px] bg-[url('../assets/diamond_l.png')] bg-no-repeat bg-center bg-contain mx-auto mb-[20px]" />
+      <div class="flex flex-col md:flex-row items-center md:max-h-[200px] overflow-hidden mb-[80px]">
+        <div class="md:w-1/2 w-full">
+          <div class="bg-[#c3a76c] rounded-[5px] text-center text-white md:text-xl tracking-wider py-[6px] md:w-1/3 w-1/4 mb-[10px]">
             課程功效
           </div>
           {/* use map */}
@@ -30,13 +33,13 @@ const imageUrl =
               "--diamond-top": "5px",
               "--diamond-left": "-15px",
             }}
-            class="before-circle text-[#6d4a2f] text-base leading-[1.6] mb-[10px]"
+            class="before-circle text-[#6d4a2f] text-base leading-[1.6] md:mr-[20px] mb-[10px] md:mb-0"
           >
             <span class="font-medium">改善皮膚粗糙、皮膚暗沈：</span>
             肌膚老廢角質，代謝緩慢，過度堆積，堵塞毛孔，阻礙肌膚呼吸。
           </div>
         </div>
-        <div class="w-1/2 rounded-[100px] overflow-hidden">
+        <div class="md:w-1/2 w-full rounded-[100px] overflow-hidden md:h-auto h-[150px]">
           <Image
             src={imageUrl}
             alt="course image"
@@ -47,21 +50,21 @@ const imageUrl =
           />
         </div>
       </div>
-      <div class="w-full relative bg-[#fff] py-[30px] px-[25px] shadow-md shadow-[0_0_10px_2px_rgba(66,42,23,0.27)] mb-[80px]">
-        <div class="bg-[#c3a76c] rounded-[5px] text-center text-white text-xl tracking-wider py-[6px]  w-1/6 absolute top-[-25px] left-0">
+      <div class="w-full relative bg-[#fff] py-[30px] px-[25px] shadow-md shadow-[0_0_10px_2px_rgba(66,42,23,0.27)] md:mb-[80px] mb-[40px]">
+        <div class="bg-[#c3a76c] rounded-[5px] text-center text-white md:text-xl tracking-wider p-[6px] md:w-1/6 absolute top-[-25px] left-0">
           課程簡介
         </div>
-        <div class="text-base leading-[1.8] mt-[12px]">
+        <div class="text-base leading-[1.8] md:mt-[12px]">
           法國思妍觀針對混合性、油性問題肌膚而設計·「芳香控油淨膚系列」，結合纯天然植物香精油純淨，與水棲植物精華的内,外雙重調理，帶來無法言喻的舒適感，全方位的控油、淨化、保濕、修護，迅速即改善粉刺、過油膚質，使肌膚潔淨、清新、不油亮，回復健康平衡
           亮潔無環的完美肌膚
         </div>
       </div>
-      <div class="w-full  border-b-1">
-        <div class="bg-[#c3a76c] rounded-[5px] text-center text-white text-xl tracking-wider py-[6px] w-1/6">
+      <div class="md:w-full  border-b-1">
+        <div class="bg-[#c3a76c] rounded-[5px] text-center text-white md:text-xl tracking-wider py-[6px] md:w-1/6 w-1/4">
           課程內容
         </div>
         {/* map */}
-        <ul class="grid grid-cols-3 gap-x-8 gap-y-4 px-[15px] py-[30px]">
+        <ul class="grid md:grid-cols-3 grid-cols-2 gap-x-8 gap-y-4 px-[15px] py-[30px] font-bold">
           <li
             style={{
               "--diamond-width": "9px",
@@ -119,22 +122,22 @@ const imageUrl =
           </li>
         </ul>
       </div>
-      <div class="flex items-center py-[40px] border-b-1">
-        <div class="bg-[#c3a76c] rounded-[5px] text-center text-white text-xl tracking-wider py-[6px] w-1/6">
+      <div class="flex items-center md:py-[40px] py-[20px] border-b-1">
+        <div class="bg-[#c3a76c] rounded-[5px] text-center text-white md:text-xl tracking-wider py-[6px] md:w-1/6 w-1/4">
           課程內容
         </div>
-        <div class="text-xl ml-[30px] font-bold">90分鐘</div>
+        <div class="text-xl md:ml-[30px] ml-auto font-bold">90 分鐘</div>
       </div>
-      <div class="flex items-center py-[40px] border-b-1 mb-[80px]">
-        <div class="bg-[#c3a76c] rounded-[5px] text-center text-white text-xl tracking-wider py-[6px] w-1/6">
+      <div class="flex flex-col md:flex-row md:items-center items-left md:py-[40px] py-[20px] border-b-1 mb-[80px]">
+        <div class="bg-[#c3a76c] rounded-[5px] text-center text-white md:text-xl tracking-wider py-[6px] md:w-1/6 w-1/4 mb-[15px] md:mb-0">
           療程價格
         </div>
-        <div class="text-xl ml-[30px] flex grid-cols-3 gap-x-8 gap-y-4">
-          <div class="flex items-center">
+        <div class="text-xl md:ml-[30px] flex flex-col md:flex-row md:grid-cols-3 md:gap-x-8 md:gap-y-4">
+          <div class="flex items-center md:mb-0 mb-[15px]">
             <span class="font-bold mr-[20px]">單堂</span>
             <span>$1500</span>
           </div>
-          <div class="flex items-center px-[20px] border-r-1 border-l-1">
+          <div class="flex items-center md:px-[20px] md:border-r-1 md:border-l-1 md:mb-0 mb-[15px]">
             <span class="font-bold mr-[20px]">五堂</span>
             <span>$1500</span>
           </div>
@@ -144,14 +147,14 @@ const imageUrl =
           </div>
         </div>
       </div>
-      <div class="w-full relative bg-[#fff] shadow-md shadow-[0_0_10px_2px_rgba(66,42,23,0.27)] h-[200px]">
-        <div class="bg-[#c3a76c] rounded-[5px] text-center text-white text-xl tracking-wider py-[6px]  w-1/6 absolute top-[-25px] left-0">
+      <div class="w-full relative bg-[#fff] shadow-md shadow-[0_0_10px_2px_rgba(66,42,23,0.27)] md:h-[200px] h-[150px]">
+        <div class="bg-[#c3a76c] rounded-[5px] text-center text-white md:text-xl tracking-wider p-[6px] md:w-1/6 absolute top-[-25px] left-0">
           居家建議
         </div>
         <div class="flex items-center justify-between h-full">
-          <div class="w-1/3 text-center flex flex-col items-end">
-            <div class="text-base leading-[1.8] mt-[12px]">芳香晶潤潔膚乳</div>
-            <div class="text-base leading-[1.8] mt-[12px]">澄花醒膚香精油</div>
+          <div class="w-1/3 text-center flex flex-col items-end md:text-base text-sm md:leading-[1.8]">
+            <div class="md:mt-[12px] mt-[6px]">芳香晶潤潔膚乳</div>
+            <div class="md:mt-[12px] mt-[6px]">澄花醒膚香精油</div>
           </div>
           <div class="img-wrap w-2/3 h-full">
             <Image
@@ -164,14 +167,11 @@ const imageUrl =
           </div>
         </div>
       </div>
-      <a
-        class="arrow-btn flex items-center mt-[40px] relative cursor-pointer"
-        href="/"
-      >
+      <div class="arrow-btn flex items-center mt-[40px] relative cursor-pointer">
         <div class="w-[47px] h-[47px] rounded-full bg-[#fff] shadow-[0_0_10px_2px_rgba(66,42,23,0.27)] " />
         <div class="arrow" />
         <div class="ml-[40px]">BACK</div>
-      </a>
+      </div>
     </div>
     //   ) : null
   )
@@ -203,3 +203,12 @@ const imageUrl =
     transform: rotate(-45deg) translate(17px, 7px);
   }
 </style>
+
+<script>
+  const backBtn = document.querySelector(".arrow-btn");
+  backBtn!.addEventListener("click", () => {
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.delete("id");
+    window.location.href = newUrl.toString();
+  });
+</script>
