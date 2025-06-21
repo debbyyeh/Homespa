@@ -31,8 +31,8 @@ export interface ServiceInfoProps {
 }
 
 const { id } = Astro.params;
-import serviceInfo from "../../data.json";
-import Popup from "../../components/Popup.astro";
+import serviceInfo from "../../../public/data.json";
+import Popup from "../../components/Popup.tsx";
 const detailInfo = serviceInfo.find((item) => item.id === id) as
   | ServiceInfoProps
   | undefined;
@@ -42,13 +42,6 @@ if (!detailInfo) {
 
 const textStyle =
   "text-black group-hover:text-[#c3a76c] transition-colors duration-300 text-center";
-
-const params = new URLSearchParams(Astro.request.url.split("?")[1]);
-const courseId = params.get("id");
-
-if (courseId) {
-  console.log("courseId", courseId);
-}
 ---
 
 <ServiceLayout>
@@ -80,6 +73,7 @@ if (courseId) {
     />
   </div>
   <div
+    id="list"
     class="bg-custom-gradient text-primary md:px-[40px] px-[30px] py-[20px] md:p-[50px] lg:max-w-3xl md:max-w-2xl w-full mx-auto mb-[30px] relative"
   >
     <div class="text-center font-medium text-2xl mb-[20px] md:mb-[30px]">
@@ -117,7 +111,7 @@ if (courseId) {
                     style={{
                       "--diamond-width": "12px",
                       "--diamond-height": "12px",
-                      "--diamond-top": "5px",
+                      "--diamond-top": "4px",
                       "--diamond-left": "-15px",
                     }}
                     class={`text-[#6d4a2f] ${detailInfo.id === "face" ? "basis-7xs" : "basis-5xs"} before-diamond group-hover:text-[#c3a76c] transition-colors duration-300`}
@@ -130,7 +124,7 @@ if (courseId) {
                   style={{
                     "--diamond-width": "12px",
                     "--diamond-height": "12px",
-                    "--diamond-top": "5px",
+                    "--diamond-top": "4px",
                     "--diamond-left": "-15px",
                   }}
                   class={`hidden md:block text-[#6d4a2f] ${detailInfo.id === "face" ? "basis-7xs" : "basis-5xs"} before-diamond group-hover:text-[#c3a76c] transition-colors duration-300`}
@@ -143,6 +137,7 @@ if (courseId) {
                   <li class={textStyle}>${course.price}</li>
                   {(detailInfo.id === "face" || detailInfo.id === "body") && (
                     <button
+                      onclick="showPopup(event)"
                       data-id={`${course.courseId}`}
                       class="more block mt-2 bg-[#c8c8c8] group-hover:bg-[#c3a76c] rounded-[5px] text-white py-[2px] px-[8px] transition-colors duration-300 flex-none text-center w-fit"
                     >
@@ -171,60 +166,51 @@ if (courseId) {
         </div>
       ))
     }
-    <Popup items={detailInfo} />
+    <Popup client:only="react" />
   </div>
 </ServiceLayout>
 
 <script>
-  function showPopup() {
-    const popup = document.getElementById("popup")!;
-    popup.classList.remove("hidden");
-    const serviceContent = document.querySelectorAll("#service-list");
-    serviceContent.forEach((content) => {
-      content.classList.add("hidden");
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".more").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = btn.getAttribute("data-id");
+        if (id) {
+          const url = new URL(window.location.href);
+          url.searchParams.set("id", id);
+          history.pushState({}, "", url);
+          window.dispatchEvent(new PopStateEvent("popstate"));
+        }
+      });
     });
-  }
 
-  function hidePopup() {
-    const popup = document.getElementById("popup")!;
-    popup.classList.add("hidden");
-    const serviceContent = document.querySelectorAll("#service-list");
-    serviceContent.forEach((content) => {
-      content.classList.remove("hidden");
-    });
-  }
-
-  document.querySelectorAll(".more").forEach((item) => {
-    item.addEventListener("click", () => {
-      const id = item.getAttribute("data-id");
-      if (id) {
-        const newUrl = new URL(window.location.href);
-        newUrl.searchParams.set("id", id);
-        history.pushState({}, "", newUrl);
-        showPopup();
-        window.scrollTo({
-          top: document.getElementById("popup")!.offsetTop,
-          behavior: "smooth",
-        });
-      }
-    });
+    updatePopupDisplay();
   });
 
-  window.addEventListener("popstate", () => {
+  function updatePopupDisplay() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
+
+    const list = document.querySelectorAll("#service-list");
+    const popup = document.getElementById("popup");
+
     if (id) {
-      showPopup();
+      list!.forEach((el) => {
+        if (el instanceof HTMLElement) {
+          el.style.display = "none";
+        }
+      });
+      popup!.classList.remove("hidden");
     } else {
-      hidePopup();
+      list!.forEach((el) => {
+        if (el instanceof HTMLElement) {
+          el.style.display = "flex";
+        }
+      });
+      popup!.classList.add("hidden");
     }
-  });
+  }
 
-  window.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    if (id) {
-      showPopup();
-    }
-  });
+  window.addEventListener("popstate", updatePopupDisplay);
 </script>

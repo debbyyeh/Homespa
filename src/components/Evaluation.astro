@@ -47,11 +47,11 @@ const evaluations = [
       class="w-[20px] h-[20px] md:w-[29px] md:h-[29px] self-start"
     />
   </div>
-  <ul class="grid grid-cols-1 md:grid-cols-2 gap-12">
+  <ul class="grid grid-cols-1 lg:grid-cols-2 gap-12">
     {
       evaluations.map((evaluation) => (
         <a href={evaluation.href} target="_blank" class="block w-full ">
-          <li class=" w-full bg-[#faf5f0] pt-[55px] pb-[35px] px-[24px] md:px-[36px] relative cursor-pointer">
+          <li class=" w-full bg-[#faf5f0] md:pt-[55px] md:pb-[35px] py-[35px] px-[20px] md:px-[36px] relative cursor-pointer">
             <div class="w-[75px] h-[75px] md:w-[105px] md:h-[105px] border-2 border-white rounded-full bg-[#f2e6d7] flex items-center justify-center absolute top-[-30px] left-[4%] border-2 border-[#f2e6d7] shadow-[0_0_10px_#f2e6d7]">
               <Image
                 src={customer}
@@ -59,13 +59,13 @@ const evaluations = [
                 class="w-[51px] h-[51px] md:w-[71px] md:h-[71px]"
               />
             </div>
-            <div class="mt-[25px] md:mt-[50px] leading-[1.8] text-normal md:text-xl text-primary tracking-wide whitespace-normal">
+            <div class="mt-[25px] md:mt-[50px] leading-[1.8] text-sm md:text-xl text-primary tracking-wide whitespace-normal md:line-clamp-2 line-clamp-3">
               {evaluation.content}
             </div>
             <div class="text-5xl md:text-7xl absolute top-[-18px] md:top-[-40px] right-[4%] text-[#c8c8c8]">
               {evaluation.id}
             </div>
-            <div class="absolute top-[50px] right-[6%] flex items-center">
+            <div class="absolute md:top-[50px] top-[30px] right-[6%] flex items-center">
               {Array(5)
                 .fill(null)
                 .map((_, index) => (
