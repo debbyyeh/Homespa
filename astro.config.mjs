@@ -10,7 +10,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  base: '/Homespa/',
+  base: '/',
+  site:'https://home-spa.com.tw',
 
   integrations: [react()]
 });
