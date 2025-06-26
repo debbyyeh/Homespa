@@ -25,6 +25,8 @@ import { useEffect, useState } from "react";
 
 export default function Popup() {
 
+  const [isShow, setIsShow] = useState<boolean>(false);
+
   const [course, setCourse] = useState<ContentProps|null>(null);
   const [categoryId, setCategoryId] = useState<string|null>(null);
   const [clickCourseId, setClickCourseId] = useState<string | null>(null);
@@ -34,11 +36,11 @@ export default function Popup() {
     const pathParts = url.pathname.split('/');
     const category = pathParts[2];
     const id = new URLSearchParams(url.search).get('id');
+    setIsShow(!!id);
 
     setCategoryId(category);
     setClickCourseId(id);
 
-    console.log('更新參數:', { category, id });
   };
 
   useEffect(() => {
@@ -81,10 +83,16 @@ export default function Popup() {
 
   
 
-  const backToCategory = () => {}
+  const backToCategory = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('id');
+    history.replaceState(null, '', url.pathname);
+    setIsShow(false);
+    window.location.reload()
+  }
 
   return(
-    course ? 
+     course && isShow ? 
     <div className=" w-full my-[20px]" id="popup">
     <div
       className="my-[20px] text-center max-w-1/3 md:max-w-1/5 w-full bg-[#6d4a2f] rounded-full text-white py-[12px] px-[15px] whitespace-nowrap mx-auto"
@@ -199,7 +207,7 @@ export default function Popup() {
         </div>
       </div>
     </div>
-    <div className="arrow-btn flex items-center mt-[40px] relative cursor-pointer" onClick={()=>backToCategory()}>
+    <div className="arrow-btn flex items-center mt-[40px] relative cursor-pointer" onClick={backToCategory}>
       <div className="w-[47px] h-[47px] rounded-full bg-[#fff] shadow-[0_0_10px_2px_rgba(66,42,23,0.27)] " />
       <div className="arrow" />
       <div className="ml-[40px]">BACK</div>

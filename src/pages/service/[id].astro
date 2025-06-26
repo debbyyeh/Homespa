@@ -105,7 +105,7 @@ const textStyle =
             class={`w-full ${item.courseCategory ? "md:w-4/5" : "md:w-full"}`}
           >
             {item.categoryLists.map((course) => (
-              <ul class="flex flex-col md:flex-row justify-between items-start md:items-center mt-[20px] mb-[20px] transition-colors duration-300 group cursor-pointer">
+              <ul class="2xl:text-lg flex flex-col md:flex-row justify-between items-start md:items-center mt-[20px] mb-[20px] transition-colors duration-300 group cursor-pointer">
                 <div class="md:hidden mb-[10px]">
                   <li
                     style={{
@@ -193,7 +193,6 @@ const textStyle =
     const id = params.get("id");
 
     const list = document.querySelectorAll("#service-list");
-    const popup = document.getElementById("popup");
 
     if (id) {
       list!.forEach((el) => {
@@ -201,14 +200,12 @@ const textStyle =
           el.style.display = "none";
         }
       });
-      popup!.classList.remove("hidden");
     } else {
       list!.forEach((el) => {
         if (el instanceof HTMLElement) {
           el.style.display = "flex";
         }
       });
-      popup!.classList.add("hidden");
     }
   }
 
