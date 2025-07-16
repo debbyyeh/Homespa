@@ -4,6 +4,20 @@ import logo from '../assets/logo.png';
 export default function Header() {
   const [toggleOn, setToggleOn] = useState<boolean>(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setToggleOn(false);
+      }
+    };
+  
+    window.addEventListener('resize', handleResize);
+  
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   useEffect(()=>{
 
     const handleScroll =()=>{
@@ -59,7 +73,7 @@ export default function Header() {
       className={`${toggleOn?'animate-slide-down': 'hidden'} md:flex flex-col md:flex-row md:items-center bg-white md:bg-transparent absolute md:static top-full left-0 w-full md:w-auto shadow-md md:shadow-none transition-all duration-300 overflow-hidden`}
     >
       <ul
-        className="flex flex-col md:flex-row text-lg p-4 md:p-0 h-svh" onClick={() => setToggleOn(false)}
+        className="flex flex-col md:flex-row text-lg p-4 md:p-0 h-svh md:h-auto" onClick={() => setToggleOn(false)}
       >
         <li className="group cursor-pointer text-secondary text-center py-8 md:py-0 hover:text-primary md:mr-[40px]">
           <a
