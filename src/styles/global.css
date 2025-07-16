@@ -61,8 +61,7 @@
     }
 }
 
-
-  @layer utilities {
+@layer utilities {
     .before-circle {
       position: relative;
     }

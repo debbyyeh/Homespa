@@ -159,8 +159,6 @@
                         "courseId": "anti-aging02",
                         "duration": "90",
                         "price": "3500",
-                        "price_five": "12500",
-                        "price_ten": "25000",
                         "efficacy": [
                             "高保濕海洋精萃深入肌膚",
                             "緩和提昇溫度激化肌膚吸收養份",
@@ -199,7 +197,7 @@
                     {
                         "courseName": "逆時活妍",
                         "courseImageUrl": "https://images.unsplash.com/photo-1651756076091-38fe92dd436a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=858&q=80",
-                        "courseId": "anti-aging01",
+                        "courseId": "skin-tightening01",
                         "duration": "90",
                         "price": "3100",
                         "efficacy": [
@@ -233,7 +231,7 @@
                     {
                         "courseName": "3D緊緻",
                         "courseImageUrl": "https://images.unsplash.com/photo-1648737119422-2680a7e39089?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
-                        "courseId": "anti-aging02",
+                        "courseId": "skin-tightening02",
                         "duration": "90",
                         "price": "3500",
                         "price_five": "12500",
@@ -276,7 +274,7 @@
                     {
                         "courseName": "雪妍瓷肌",
                         "courseImageUrl": "https://images.unsplash.com/photo-1651756076091-38fe92dd436a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=858&q=80",
-                        "courseId": "anti-aging01",
+                        "courseId": "brightening01",
                         "duration": "90",
                         "price": "4300",
                         "efficacy": [
@@ -310,11 +308,9 @@
                     {
                         "courseName": "白皙晶瑩",
                         "courseImageUrl": "https://images.unsplash.com/photo-1648737119422-2680a7e39089?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
-                        "courseId": "anti-aging02",
+                        "courseId": "brightening02",
                         "duration": "90",
                         "price": "3900",
-                        "price_five": "12500",
-                        "price_ten": "25000",
                         "efficacy": [
                             "高保濕海洋精萃深入肌膚",
                             "緩和提昇溫度激化肌膚吸收養份",
@@ -353,7 +349,7 @@
                     {
                         "courseName": "鎮靜修護",
                         "courseImageUrl": "https://images.unsplash.com/photo-1651756076091-38fe92dd436a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=858&q=80",
-                        "courseId": "anti-aging01",
+                        "courseId": "gentle-care01",
                         "duration": "90",
                         "price": "2500",
                         "efficacy": [
@@ -387,7 +383,7 @@
                     {
                         "courseName": "精華液導入",
                         "courseImageUrl": "https://images.unsplash.com/photo-1648737119422-2680a7e39089?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
-                        "courseId": "anti-aging02",
+                        "courseId": "gentle-care02",
                         "duration": "30",
                         "price": "1500",
                         "efficacy": [
@@ -423,7 +419,7 @@
                     {
                         "courseName": "臉部撥筋",
                         "courseImageUrl": "https://images.unsplash.com/photo-1648737119422-2680a7e39089?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
-                        "courseId": "anti-aging02",
+                        "courseId": "gentle-care03",
                         "duration": "30",
                         "price": "1000",
                         "efficacy": [
@@ -459,7 +455,7 @@
                     {
                         "courseName": "臉部提拉儀",
                         "courseImageUrl": "https://images.unsplash.com/photo-1648737119422-2680a7e39089?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
-                        "courseId": "anti-aging02",
+                        "courseId": "gentle-care04",
                         "duration": "30",
                         "price": "1000",
                         "efficacy": [
@@ -795,74 +791,111 @@
                 "courseCategory": "足部保養",
                 "categoryLists": [
                     {
-                        "courseName": "足部基礎護理",
-                        "courseId":"anti-aging01",
-                        "duration": "75",
+                        "courseName": "足部蠟封",
+                        "courseId": "foot01",
+                        "duration": "15",
+                        "price": "500"
+                      },
+                      {
+                        "courseName": "足底修護",
+                        "courseId": "foot02",
+                        "duration": "30",
                         "price": "800"
-                    },
-                    {
-                        "courseName": "足部健康修護護理",
-                        "courseId":"anti-aging01",
-                        "duration": "75",
+                      },
+                      {
+                        "courseName": "足部甲面",
+                        "courseId": "foot03",
+                        "duration": "30",
+                        "price": "800"
+                      },
+                      {
+                        "courseName": "足部基礎",
+                        "courseId": "foot04",
+                        "duration": "60",
+                        "price": "1800"
+                      },
+                      {
+                        "courseName": "BS崁甲矯正",
+                        "courseId": "foot05",
+                        "duration": "60",
                         "price": "1000"
-                    },
-                    {
-                        "courseName": "足部杏仁柔膚護理",
-                        "courseId":"anti-aging01",
+                      },
+                      {
+                        "courseName": "足部蜜蠟保濕",
+                        "courseId": "foot06",
+                        "duration": "75",
+                        "price": "1800"
+                      },
+                      {
+                        "courseName": "足部果核柔膚",
+                        "courseId": "foot07",
                         "duration": "90",
-                        "price": "1500"
-                    },
-                    {
-                        "courseName": "足部深層蘭花滋養護理",
-                        "courseId":"anti-aging01",
-                        "duration": "120",
-                        "price": "2000"
-                    }
+                        "price": "2200"
+                      },
+                      {
+                        "courseName": "足部深層滋養",
+                        "courseId": "foot08",
+                        "duration": "90",
+                        "price": "2800"
+                      },
+                      {
+                        "courseName": "AESOP足部天竺葵淨化",
+                        "courseId": "foot09",
+                        "duration": "90",
+                        "price": "2800"
+                      }
                 ]
             },
             {
                 "courseCategory": "單項護理",
                 "categoryLists": [
                     {
-                        "courseName": "指甲油上色",
-                        "courseId":"anti-aging01",
-                        "duration": "15",
-                        "price": "250"
-                    },
-                    {
-                        "courseName": "漸層指甲油上色",
-                        "courseId":"anti-aging01",
-                        "duration": "20",
-                        "price": "300"
-                    },
-                    {
-                        "courseName": "法式指甲油上色",
-                        "courseId":"anti-aging01",
+                        "courseName": "光療卸甲(限店內製作之光療)",
+                        "courseId":"nail-care01",
                         "duration": "30",
-                        "price": "350"
+                        "price": "500"
                     }
                 ]
             },
             {
-                "courseCategory": "凝膠美甲",
+                "courseCategory": "凝膠指甲",
                 "categoryLists": [
                     {
-                        "courseName": "透明真甲光",
-                        "courseId":"anti-aging01",
-                        "duration": "60",
-                        "price": "1000"
+                        "courseName": "單色",
+                        "courseId":"nail01",
+                        "duration": "45",
+                        "price": "1200"
                     },
                     {
-                        "courseName": "單色光療",
-                        "courseId":"anti-aging01",
+                        "courseName": "法式",
+                        "courseId":"nail02",
                         "duration": "60",
-                        "price": "1300"
+                        "price": "1800"
+                    }
+                    ,
+                    {
+                        "courseName": "漸層",
+                        "courseId":"nail03",
+                        "duration": "90",
+                        "price": "2200"
                     },
                     {
-                        "courseName": "璀璨光療",
-                        "courseId":"anti-aging01",
+                        "courseName": "貓眼",
+                        "courseId":"nail04",
                         "duration": "90",
                         "price": "1500"
+                    },
+                    {
+                        "courseName": "璀璨",
+                        "courseId":"nail05",
+                        "duration": "90",
+                        "price": "1500"
+                    },
+                    {
+                        "courseName": "凝膠延長光療",
+                        "courseId":"nail06",
+                        "duration": "90",
+                        "price": "3000"
                     }
                 ]
             },
@@ -870,28 +903,16 @@
                 "courseCategory": "美甲設計",
                 "categoryLists": [
                     {
-                        "courseName": "亮片夾心(單指)",
-                        "courseId":"anti-aging01",
+                        "courseName": "指甲油彩繪",
+                        "courseId":"nail-deco01",
                         "duration": "60",
-                        "price": "50"
+                        "price": "1500"
                     },
                     {
-                        "courseName": "亮片夾心(十指)",
-                        "courseId":"anti-aging01",
-                        "duration": "60",
-                        "price": "220"
-                    },
-                    {
-                        "courseName": "貼紙夾心(單指)",
-                        "courseId":"anti-aging01",
-                        "duration": "90",
-                        "price": "60"
-                    },
-                    {
-                        "courseName": "貼紙夾心(十指)",
-                        "courseId":"anti-aging01",
-                        "duration": "90",
-                        "price": "270"
+                        "courseName": "指甲油上色/拋光",
+                        "courseId":"nail-deco02",
+                        "duration": "30",
+                        "price": "500"
                     }
                 ]
             }
