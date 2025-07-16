@@ -1,5 +1,4 @@
 ---
-import ServiceLayout from "../../layouts/ServiceLayout.astro";
 import { Image } from "astro:assets";
 
 import star from "../../assets/star.png";
@@ -34,6 +33,7 @@ const { id } = Astro.params;
 import serviceInfo from "../../../public/data.json";
 import Popup from "../../components/Popup.tsx";
 import Lightbulb from "../../components/Lightbulb";
+import Layout from "../../layouts/Layout.astro";
 const detailInfo = serviceInfo.find((item) => item.id === id) as
   | ServiceInfoProps
   | undefined;
@@ -45,7 +45,7 @@ const textStyle =
   "text-black group-hover:text-[#c3a76c] transition-colors duration-300 text-center";
 ---
 
-<ServiceLayout>
+<Layout>
   <div
     class="bg-[url('../assets/service/banner.jpg')] bg-no-repeat bg-center bg-cover h-[300px] md:h-[750px] relative px-[30px] md:px-0"
   >
@@ -170,7 +170,7 @@ const textStyle =
     }
     <Popup client:only="react" />
   </div>
-</ServiceLayout>
+</Layout>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {

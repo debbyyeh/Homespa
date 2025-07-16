@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
-  const diamondStyles: React.CSSProperties = {
-    '--diamond-width': '9px',
-    '--diamond-height': '9px',
-    '--diamond-top': '5px',
-    '--diamond-left': '-15px',
-  } as React.CSSProperties;
+const diamondStyles: React.CSSProperties = {
+  '--diamond-width': '9px',
+  '--diamond-height': '9px',
+  '--diamond-top': '5px',
+  '--diamond-left': '-15px',
+} as React.CSSProperties;
 
 
-  interface ContentProps {
-    courseName: string;
-    courseImageUrl?: string;
-    duration: number;
-    price: number;
-    courseId?: string;
-    efficacy: string[];
-    introduction: string;
-    content: string[];
-    productsImageUrl?: string;
-    products:{
-      productName:string,
-      link:string
-    }[]
-  }
+interface ContentProps {
+  courseName: string;
+  courseImageUrl?: string;
+  duration: number;
+  price: number;
+  courseId?: string;
+  efficacy: string[];
+  introduction: string;
+  content: string[];
+  productsImageUrl?: string;
+  products:{
+    productName:string,
+    link:string
+  }[]
+}
 
 export default function Popup() {
 
