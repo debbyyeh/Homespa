@@ -24,6 +24,14 @@ export default function Header() {
     }
   },[])
 
+  const slideToService = ()=>{
+    const target = document.getElementById('service');
+    if (target) {
+      const y = target.getBoundingClientRect().top;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
+
   return(
     <header
       id="header"
@@ -69,9 +77,9 @@ export default function Header() {
             RESERVATION
           </a>
         </li>
-        <li className="group cursor-pointer text-secondary text-center py-8 md:py-0">
-          <a href="#service" className="group-hover:hidden block"> 服務項目 </a>
-          <a href="#service" className="hidden group-hover:inline"> SERVICES </a>
+        <li className="group cursor-pointer text-secondary text-center py-8 md:py-0" onClick={slideToService}>
+          <a className="group-hover:hidden block"> 服務項目 </a>
+          <a className="hidden group-hover:inline"> SERVICES </a>
         </li>
       </ul>
       </nav>
