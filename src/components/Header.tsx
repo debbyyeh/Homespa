@@ -38,13 +38,17 @@ export default function Header() {
     }
   },[])
 
-  const slideToService = ()=>{
+  const slideToService = () => {
     const target = document.getElementById('service');
+
+    window.location.href = '/#service';
+
     if (target) {
-      const y = target.getBoundingClientRect().top;
+      const y = target.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
-  }
+  };
+  
 
   return(
     <header

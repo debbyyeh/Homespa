@@ -81,7 +81,7 @@
                     {
                         "courseName": "嫩膚安撫",
                         "courseImageUrl": "https://images.unsplash.com/photo-1651753133883-7e25c3d1a1e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=684&q=80",
-                        "courseId": "moisturizing02",
+                        "courseId": "moisturizing03",
                         "duration": "90",
                         "price": "3500",
                         "efficacy": [
@@ -577,7 +577,7 @@
                     {
                         "courseName": "曲線魔纖體蹤護理",
                         "courseImageUrl": "https://images.unsplash.com/photo-1651753133883-7e25c3d1a1e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=684&q=80",
-                        "courseId": "moisturizing02",
+                        "courseId": "moisturizing03",
                         "duration": "90",
                         "price": "2500",
                         "price_five": "12500",
