@@ -59,7 +59,7 @@ export default function ContentPage({id}: {id: string}) {
 
     useEffect(() => {
         const handlePopState = () => {
-            const url = new URL(window.location.href);
+            const url = new URL(window.location.origin + window.location.pathname);
             const courseId = url.searchParams.get("id") || "";
             if (detailInfo && courseId) {
               setPopupId({
