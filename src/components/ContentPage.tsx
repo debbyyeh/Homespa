@@ -161,13 +161,13 @@ export default function ContentPage({id}: {id: string}) {
                             </div>
                             <li
                                 style={diamondStyle}
-                                className={`hidden md:block text-[#6d4a2f] ${detailInfo.id === "face" ? "basis-7xs" : "basis-5xs"} before-diamond group-hover:text-[#c3a76c] transition-colors duration-300`}
+                                className={`hidden md:block text-[#6d4a2f] ${detailInfo.id === "face" ? "basis-7xs" : "basis-5xs"} before-diamond group-hover:text-[#c3a76c] transition-colors duration-300 `}
                             >
                                 {course.courseName}
                             </li>
                             <div className="md:hidden flex items-center justify-between w-full">
-                            <li className={textStyle}>{course.duration}分鐘</li>
-                            <li className={textStyle}>${course.price}</li>
+                            <li className={`${textStyle} min-w-[60px]`}>{course.duration}分鐘</li>
+                            <li className={`${textStyle} min-w-[100px] text-end`}>${course.price}</li>
                             {(detailInfo.id === "face" || detailInfo.id === "body") && (
                                 <button
                                     onClick={()=>{
@@ -187,10 +187,10 @@ export default function ContentPage({id}: {id: string}) {
                                 </button>
                             )}
                             </div>
-                            <li className={`hidden md:block ${textStyle}`}>
+                            <li className={`hidden md:block ${textStyle} min-w-[60px] text-end`}>
                                 {course.duration}分鐘
                             </li>
-                            <li className={`hidden md:block ${textStyle} font-bold`}>
+                            <li className={`hidden md:block ${textStyle} font-bold min-w-[100px] text-end`}>
                                 ${course.price}
                             </li>
                             {(detailInfo.id === "face" || detailInfo.id === "body") && (
