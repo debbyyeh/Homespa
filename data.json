@@ -963,33 +963,6 @@
         ]
     },
     {
-        "name": "美睫",
-        "id":"eyelash",
-        "bannerUrl": "https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-        "courses": [
-            {
-                "categoryLists": [
-                    {
-                        "courseName": "嫁接睫毛",
-                        "courseId":"eyelash01",
-                        "duration": "90",
-                        "price": "2700"
-                    }, {
-                        "courseName": "卸睫",
-                        "courseId":"eyelash02",
-                        "duration": "30",
-                        "price": "800"
-                    },{
-                        "courseName": "角蛋白美睫",
-                        "courseId":"eyelash03",
-                        "duration": "90",
-                        "price": "2500"
-                    }
-                ]
-            }
-        ]
-    },
-    {
         "name": "手足保養",
         "id":"nail",
         "bannerUrl": "https://images.unsplash.com/photo-1617820784160-a18adff1cdc4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
@@ -1173,11 +1146,12 @@
         ]
     },
     {
-        "name": "紋綉",
+        "name": "特殊保養(紋繡/美睫)",
         "id":"microblading",
         "bannerUrl": "https://images.unsplash.com/photo-1495707800306-e240c5a0d65f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80",
         "courses": [
             {
+                "courseCategory": "紋繡",
                 "categoryLists": [
                     {
                         "courseName": "日式仿真飄眉",
@@ -1208,6 +1182,63 @@
                         "courseId":"microblading05",
                         "duration": "60",
                         "price": "現場估價"
+                    }
+                ]
+            },
+            {
+                "courseCategory": "美睫",
+                "categoryLists": [
+                    {
+                        "courseName": "嫁接睫毛",
+                        "courseId":"eyelash01",
+                        "duration": "90",
+                        "price": "2700"
+                    }, {
+                        "courseName": "卸睫",
+                        "courseId":"eyelash02",
+                        "duration": "30",
+                        "price": "800"
+                    },{
+                        "courseName": "角蛋白美睫",
+                        "courseId":"eyelash03",
+                        "duration": "90",
+                        "price": "2500"
+                    }
+                ]
+            }
+        ]
+    },{
+        "name": "彩妝造型",
+        "id":"styling",
+        "bannerUrl": "https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+        "courses": [
+            {
+                "categoryLists": [
+                    {
+                        "courseName": "宴會單造",
+                        "courseId":"styling01",
+                        "duration": "120",
+                        "price": "6000"
+                    }, {
+                        "courseName": "訂婚造型",
+                        "courseId":"styling02",
+                        "duration": "180",
+                        "price": "15000-18000"
+                    },{
+                        "courseName": "結婚造型",
+                        "courseId":"styling03",
+                        "duration": "300",
+                        "price": "22000-28000"
+                    },{
+                        "courseName": "親友",
+                        "courseId":"styling04",
+                        "duration": "90",
+                        "price": "2000-4000"
+                    },{
+                        "courseName": "試妝（可抵扣）",
+                        "courseId":"styling05",
+                        "duration": "120",
+                        "price": "5000"
                     }
                 ]
             }
