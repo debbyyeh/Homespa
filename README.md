@@ -1,48 +1,29 @@
-# Astro Starter Kit: Basics
+這是一個為朋友製作的美容網站，採用 **React + Astro + Tailwind CSS** 開發。  
+主要透過 **Astro** 生成靜態網站，並使用 **Tailwind CSS** 進行快速且響應式的切版。
 
-```sh
-npm create astro@latest -- --template basics
-```
+## ✨ 專案特色
+- **Astro**：高效生成靜態頁面，優化載入速度與 SEO 表現
+- **React**：處理互動式元件與動態 UI
+- **Tailwind CSS**：快速切版，保證設計一致性與 RWD 響應式效果
+- **響應式設計**：支援桌面與行動裝置
+- **完整部署流程**：從購買網域到正式上線
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🌐 正式網站
+可在正式網域上瀏覽：[https://home-spa.com.tw/](https://home-spa.com.tw/)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🛠 使用技術
+- [Astro](https://astro.build/)
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📦 部署流程
+1. **購買網域**  
+   - 使用 [GoDaddy](https://www.godaddy.com/) 購買 `home-spa.com.tw`
+2. **設定 GitHub Pages**  
+   - 將專案推送到 GitHub
+   - 在專案的 **Settings → Pages** 設定部署來源為 `main` 分支的 `/dist`（Astro build 輸出資料夾）
+3. **網域綁定**  
+   - 在 GoDaddy 後台將 DNS A 記錄與 CNAME 指向 GitHub Pages  
+   - 在專案根目錄新增 `CNAME` 檔案，內容為 `home-spa.com.tw`
+4. **上線完成**  
+   - 網站可透過正式網域訪問
